@@ -1,0 +1,58 @@
+[project]
+name = "dumpstate-py"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+keywords = ["android", "dumpstate"]
+description = "Python library for parsing the Android dumpstate file"
+requires-python = ">=3.12"
+dynamic = ["version"]
+authors = [
+    { name = "CERT-EDF", email = "cert@edf.fr" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security",
+    "Topic :: Software Development",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "rich>=14.0.0"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/cert-edf/dumpstate-py"
+Repository = "https://github.com/cert-edf/dumpstate-py"
+Issues = "https://github.com/cert-edf/dumpstate-py/issues"
+
+
+[project.scripts]
+dumpstate = "dumpstate.main:app"
+
+
+[build-system]
+requires = ["setuptools>=78", "setuptools_scm>=8.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dumpstate", "dumpstate.*"]
+
+
+[tool.setuptools_scm]
+version_file = "dumpstate/__version__.py"
+
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+
+
+[tool.isort]
+profile = "black"
+line_length = 79
